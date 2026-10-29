@@ -1,0 +1,4 @@
+method,params,matdecomp_dir,best_A,best_dy,best_dx,n_eval_pix,rmse_adip,rmse_gland,rmse_calc,cnr_adip,cnr_gland,cnr_calc,rmse_mean
+DeNoise,{},/home/nidrazuk/DECT_Breast_Project/UncompressedBreast1_CT/z350/xcist_fdk/image_matdecomp_DeNoise,My,-120.33147826213178,-153.66737023884133,210596,0.9493317008018494,0.9508610963821411,0.022103961557149887,,,-0.41208410263061523,0.6407655862470468
+IterTV,{},/home/nidrazuk/DECT_Breast_Project/UncompressedBreast1_CT/z350/xcist_fdk/image_matdecomp_iterative_tv,My,-120.33147826213178,-153.66737023884133,210596,0.9494797587394714,0.9507507681846619,0.022103961557149887,,,-0.41208410263061523,0.6407781628270944
+DataDriven,{},/home/nidrazuk/DECT_Breast_Project/UncompressedBreast1_CT/z350/xcist_fdk/image_matdecomp_datadriven,My,-120.33147826213178,-153.66737023884133,210596,0.949618935585022,0.9519550204277039,0.04754210636019707,,,-0.04251052811741829,0.6497053541243076

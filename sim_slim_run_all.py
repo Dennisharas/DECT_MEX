@@ -5,14 +5,14 @@ import gecatsim as xc
 from gecatsim.pyfiles import CommonTools as CT
 
 # ----------------- inställningar -----------------
-ENERGY_TAG = "40kVp_Cu0.2"
+ENERGY_TAG = "60kVp_Cu0.2"
 
 ALLZ_DIR = os.path.expanduser(
-    "~/Desktop/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_allz"
+    "~/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_allz2"
 )
 
 OUTROOT = os.path.expanduser(
-    "~/Desktop/DECT_Breast_Project/UncompressedBreast1_CT"
+    "~/DECT_Breast_Project/UncompressedBreast1_CT"
 )
 
 THRESH = 0.2                # tröskel i center-of-mass på sino-raden
@@ -22,7 +22,7 @@ OFFSET_INDEX = 0            # 0=x, 1=y, 2=z
 
 # --- robust hitta projektroot och main/gecatsim ---
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))               # .../main/EXE
-PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))  # .../DECT_Breast_Project
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))  # .../DECT_Breast_Project
 PKG = os.path.join(PROJECT_ROOT, "main", "gecatsim")
 CFG_DIR = os.path.join(PKG, "cfg")
 PHANTOM_CFG = os.path.join(CFG_DIR, "Phantom_Default.cfg")
@@ -225,6 +225,12 @@ try:
         ct2 = make_ct()
         ct2.phantom.callback = "Phantom_Voxelized"
         ct2.phantom.filename = phantom_json
+
+        # Bestäm spektrumfil beroende på namn
+        if "40kVp" in ENERGY_TAG:
+            ct2.protocol.spectrumFilename = "tungsten_tar7.0_120_filt.dat"
+        elif "60kVp" in ENERGY_TAG:
+            ct2.protocol.spectrumFilename = "tungsten_tar7.0_90_filt.dat"
 
         prefix2 = os.path.join(outdir, f"breast2d_{ENERGY_TAG}_z{zi:03d}")
         ct2.resultsName = prefix2

@@ -38,7 +38,7 @@ DO_DEBUG_IMAGES = True
 # PATHS (FDK) - EXAKT platsen du vill använda
 # ============================================================
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-ROOT = os.path.join(PROJECT_ROOT, "main", "EXE", "results", "xcist_fdk")
+ROOT = os.path.join(PROJECT_ROOT, "DECT_Breast_Project" ,"UncompressedBreast1_CT" ,"z350" , "xcist_fdk")
 
 vol40_path = os.path.join(ROOT, "recon_fdk40.npy")
 vol60_path = os.path.join(ROOT, "recon_fdk60.npy")

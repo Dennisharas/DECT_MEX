@@ -4,7 +4,7 @@ import gecatsim as xc
 from gecatsim.pyfiles import CommonTools as CT
 
 HERE = os.path.dirname(__file__)
-PKG  = os.path.abspath(os.path.join(HERE, "..", "gecatsim"))
+PKG  = os.path.abspath(os.path.join(HERE, "..", "main", "gecatsim"))
 
 # 1) Registrera sökvägar så CatSim hittar allt (inkl. din C/C++-lib)
 CT.my_path.paths = {
@@ -25,10 +25,10 @@ ct.load_cfg("Protocol_Default", "Physics_Default", "Phantom_Default", "Scanner_D
 # (valfritt) – peka på logofantomen för en snabb test
 ct.phantom.callback = "Phantom_Voxelized"
 ct.phantom.filename = os.path.expanduser(
-    "~/Desktop/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_z202/breast_voxelized_2D.json"
+    "~/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_allz2/z350/breast_voxelized_2D.json"
 )
 
-energy_tag = "40kVp_Cu0.2"  # byt till t.ex. "120kVp_Cu0.2" i andra körningen
+energy_tag = "60kVp_Cu0.2"  # byt till t.ex. "120kVp_Cu0.2" i andra körningen
 # Kör en phantom-scan; ct.run_all() kör sedan preprocess så .prep skapas
 
 out_prefix = os.path.join(HERE, "results", f"breast2d_{energy_tag}")
@@ -106,7 +106,7 @@ import gecatsim as xc
 from gecatsim.pyfiles import CommonTools as CT
 
 # --- prefix till dina filer ---
-energy_tag = "40kVp_Cu0.2"   # ändra till exakt samma sträng som i körningen
+energy_tag = "60kVp_Cu0.2"   # ändra till exakt samma sträng som i körningen
 prefix = os.path.join("results", f"breast2d_{energy_tag}")
 
 # --- hämta dimensioner från cfg ---

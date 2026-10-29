@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Dataset folders
+UncompressedBreast1_CT/
+xcist_voxelized_bundle_auto2d_calc/
+material_sinograms_npy

@@ -16,11 +16,11 @@ from scipy.ndimage import binary_opening, binary_closing, binary_fill_holes, lab
 # PATHS
 # ==============================
 DICOM_DIR = os.path.expanduser(
-    "~/Desktop/uncompressed_dicom/UncompressedBreast1"
+    "~/compressed_dicom/compressedBreast1"
 )
 
 OUT_ROOT  = os.path.expanduser(
-    "~/Desktop/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_allz2"
+    "~/DECT_Breast_Project/xcist_voxelized_bundle_auto2d_calc/UncompressedBreast1_allz2"
 )
 
 os.makedirs(OUT_ROOT, exist_ok=True)

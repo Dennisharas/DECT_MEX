@@ -28,11 +28,11 @@ MANUAL_FINE_DY = -60.0   # upp
 MANUAL_FINE_DX = +49.0   # vänster
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-FDK_DIR = os.path.join(PROJECT_ROOT, "main", "EXE", "results", "xcist_fdk")
+FDK_DIR = os.path.join(PROJECT_ROOT, "DECT_Breast_Project", "UncompressedBreast1_CT", "z350", "xcist_fdk")
 FDK40_NPY = os.path.join(FDK_DIR, "recon_fdk40.npy")
 FDK60_NPY = os.path.join(FDK_DIR, "recon_fdk60.npy")
 
-PHANTOM_DIR = os.path.join(PROJECT_ROOT, "xcist_voxelized_bundle_auto2d_calc", "UncompressedBreast1_z202")
+PHANTOM_DIR = os.path.join(PROJECT_ROOT, "DECT_Breast_Project", "xcist_voxelized_bundle_auto2d_calc", "UncompressedBreast1_allz2", "z350")
 GT_VOL1 = os.path.join(PHANTOM_DIR, "breast2d_vol_1.bin")  # adip
 GT_VOL2 = os.path.join(PHANTOM_DIR, "breast2d_vol_2.bin")  # gland
 GT_VOL3 = os.path.join(PHANTOM_DIR, "breast2d_vol_3.bin")  # skin
@@ -221,13 +221,16 @@ def rmse_masked(pred, gt, mask):
 def cnr(sig_vals, bg_vals, eps=1e-12):
     if sig_vals.size == 0 or bg_vals.size == 0:
         return float("nan")
+    print(f"Sig adip pixlar: {np.sum(sig_vals)}, Bg adip pixlar: {np.sum(bg_vals)}")
     return float((np.mean(sig_vals) - np.mean(bg_vals)) / (np.sqrt(np.var(sig_vals) + np.var(bg_vals)) + eps))
 
 # ============================================================
 # Load GT once
 # ============================================================
 def load_gt_all():
-    gt_shape = infer_square_2d_shape_from_bin(GT_VOL1, dtype=np.float32)
+    #gt_shape = infer_square_2d_shape_from_bin(GT_VOL1, dtype=np.float32)
+    gt_meta = load_gt_meta_from_json(GT_JSON)
+    gt_shape = (gt_meta["rows"], gt_meta["cols"], 1)
     gt_ad = read_bin(GT_VOL1, gt_shape, dtype=np.float32)
     gt_gl = read_bin(GT_VOL2, gt_shape, dtype=np.float32)
     gt_sk = read_bin(GT_VOL3, gt_shape, dtype=np.float32)

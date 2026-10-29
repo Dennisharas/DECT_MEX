@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "DECT_Breast_Simulation",
+    "root_dir": "/home/nidrazuk/DECT_Breast_Project"
+  },
+  "slice_config": {
+    "active_slice": "z350",
+    "transpose_gt": true
+  },
+  "geometry": {
+    "recon_fov_mm": 320.0,
+    "recon_image_size": 800,
+    "recon_center_offset_mm": [-15.0, 10.0],
+    "phantom_center_offset_mm": [0.0, -70.0],
+    "manual_fine_dy": -60.0,
+    "manual_fine_dx": 49.0
+  },
+  "methods": [
+    {
+      "name": "IterTV",
+      "subfolder": "image_matdecomp_iterative_tv"
+    },
+    {
+      "name": "DataDriven",
+      "subfolder": "image_matdecomp_datadriven"
+    }
+  ]
+}
